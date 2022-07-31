@@ -1,4 +1,5 @@
 import { NextPage, GetStaticProps, NextPageContext } from "next";
+import Link from "next/link";
 import Head from "next/head";
 
 type SSGProps = {
@@ -15,6 +16,18 @@ const SSG: NextPage<SSGProps> = (props) => {
       <main>
         <p>このページはSSGでBuild時に生成されたページです</p>
         {props.message}
+        <br />
+        <Link href="/">
+          <a>Topへ戻る</a>
+        </Link>
+        <br />
+        <Link href={{ pathname: "/", query: { sample: "XXX" } }}>
+          <a>ハッシュ付きでTopへ戻る</a>
+        </Link>
+        <br />
+        <Link href="/">
+          <button>Topへ戻るボタン</button>
+        </Link>
       </main>
     </div>
   );
